@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos practicos de Flexbox</title>
+    <style>
+        *::after,
+        *::before{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .titulares{
+            padding: 1rem;
+            background-color: #222;
+            color: #eee;
+        }
+
+        .header{
+            display: flex;
+            flex-direction: column;
+            align-items: center;/* centre la caja* /
+            text-align: center;/* centre el texto*/
+        }
+
+        main{
+            flex-grow: 1;
+        }
+
+        
+
+        body{
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;  
+        }
+
+        .menu ul{
+            list-style-type: none;/*  para sacar los puntos de la lista*/
+        }
+
+        .hero-image{
+             min-height: 100vh;                  /*Importante darle una min altura */
+            background-image:url("https://placeimg.com/1280/720/animals"); /* imag domis q saca de inter,desp 
+            de la / agregar tamaño q queremos la img ej:(ancho/altura/categoria)/1280/720/animals  */
+            background-repeat: no-repeat;/*no repetir img */
+            color: #fff;
+        }
+
+        .hero-image div{
+            min-height: inherit;/*hereda espacio la height de su padre .hero-image */ 
+            display: flex;/*para centar las palabr */
+            justify-content: center;/*para centar las palabr */
+            justify-items: center;/*para centar las palabr */
+            text-align: center;/*para centar las palabr */
+            background-color: rgba(0, 0,0, .75);/*rgba para darle opacidad p q el texto se aprecie */
+        }
+
+        .hero-image h1{
+            font-size:5vw ;/* ponemos "vw"para q las letra se agrand o achiquen segun query  */
+        }
+
+        footer li{
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content:center;
+          font-size: 2vw;
+        }
+
+        @media screen and (min-width:1024px) {
+            .header{
+                display: flex;
+                flex-direction: row;
+                justify-content:space-between ;/* para ubicar el logo a la derch y las ul izquierda */
+            }
+            .menu ul{
+                display: flex;/* para q las "li" se alinearan */
+            }
+            .menu li {
+                 padding: .5rem;  /* para dar un padding a la li */
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <header class="titulares header">
+        <div class="logo">
+        <div><img src="asset/istockphoto-664650102-170667a.jpg" alt="logo gato" height="200" width="250"></div>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#">section 1</a></li>
+                <li><a href="#">section 2</a></li>
+                <li><a href="#">section 3</a></li>
+                <li><a href="#">section 4</a></li>
+            </ul>
+        </nav>
+    </header>    
+    <main> <!--colocar una imagen con texto por encima,img  -->       
+        <h2>contenido</h2>
+        <article class="hero-image">
+            <div><!-- import colocar div para el color de fondo y quede bien la img encima-->
+                <h1>ESTO SOLO ES UN fucking'COMIENZO!!</h1><!--hereda el contened flexbox(.hero-image div) osea para centrar las palab display:flex-->
+            </div>
+        </article>
+    </main>
+    <footer class="titulares">
+        <h2>Sticky footer</h2>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/analia-bazzana-389aa6218/ ">Mi Perfil linkedin</a></li><br>
+            <br>
+            <li>Instagram: anna.bazzana</li>
+        </ul>
+    </footer> 
+   
+</body>
+</html>
